@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.c7876222.chunk.css",
-  "main.js": "/static/js/main.0fdabc4b.chunk.js",
-  "main.js.map": "/static/js/main.0fdabc4b.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.fdfcfda2.js",
-  "runtime~main.js.map": "/static/js/runtime~main.fdfcfda2.js.map",
-  "static/js/2.34a54821.chunk.js": "/static/js/2.34a54821.chunk.js",
-  "static/js/2.34a54821.chunk.js.map": "/static/js/2.34a54821.chunk.js.map",
-  "index.html": "/index.html",
-  "precache-manifest.0c767e5967fba9cb72edeee1f3bf119a.js": "/precache-manifest.0c767e5967fba9cb72edeee1f3bf119a.js",
-  "service-worker.js": "/service-worker.js",
-  "static/css/main.c7876222.chunk.css.map": "/static/css/main.c7876222.chunk.css.map"
+  "main.css": "/useVideo/static/css/main.c7876222.chunk.css",
+  "main.js": "/useVideo/static/js/main.0fdabc4b.chunk.js",
+  "main.js.map": "/useVideo/static/js/main.0fdabc4b.chunk.js.map",
+  "runtime~main.js": "/useVideo/static/js/runtime~main.bb49e0f3.js",
+  "runtime~main.js.map": "/useVideo/static/js/runtime~main.bb49e0f3.js.map",
+  "static/js/2.34a54821.chunk.js": "/useVideo/static/js/2.34a54821.chunk.js",
+  "static/js/2.34a54821.chunk.js.map": "/useVideo/static/js/2.34a54821.chunk.js.map",
+  "index.html": "/useVideo/index.html",
+  "precache-manifest.8b2971e090ecd7f8518997b3d823d3e7.js": "/useVideo/precache-manifest.8b2971e090ecd7f8518997b3d823d3e7.js",
+  "service-worker.js": "/useVideo/service-worker.js",
+  "static/css/main.c7876222.chunk.css.map": "/useVideo/static/css/main.c7876222.chunk.css.map"
 }
