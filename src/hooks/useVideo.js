@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import useInterval from "use-interval";
 import { useSetState } from "react-use";
 
@@ -66,18 +66,15 @@ export default function useVideo(input) {
   const updateState = newState =>
     setState(prevState => ({ ...prevState, ...newState }));
 
-  useEffect(
-    () => {
-      globalData = { video: ref.current, state, updateState };
-      setFromVideo();
-      addListeners();
+  useEffect(() => {
+    globalData = { video: ref.current, state, updateState };
+    setFromVideo();
+    addListeners();
 
-      return () => {
-        console.log("unmounted");
-      };
-    },
-    [state.ready, state.isPlaying]
-  );
+    return () => {
+      console.log("unmounted");
+    };
+  }, [state.ready, state.isPlaying]);
 
   useInterval(() => setFromVideo(), state.isPlaying ? 500 : null);
 
