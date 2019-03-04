@@ -1,20 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import useVideo from "./lib";
-import "./index.css";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import useVideo from './lib'
+import './index.css'
 
 function App() {
   const { ref, state, functions } = useVideo(
-    <video muted autoPlay loop style={{ width: "100%" }}>
+    <video muted autoPlay loop style={{ width: '100%' }}>
       <source
         src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
         type="video/mp4"
       />
     </video>
-  );
+  )
   return (
     <div className="App">
-      <video ref={ref} muted autoPlay loop style={{ width: "100%" }}>
+      <video ref={ref} muted autoPlay loop style={{ width: '100%' }}>
         <source
           src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
           type="video/mp4"
@@ -38,7 +38,7 @@ function App() {
           ) : (
             <button onClick={functions.mute}>Mute</button>
           )}
-
+          <button onClick={functions.fullscreen}>Full Screen</button>
           <input
             type="range"
             min="0"
@@ -49,8 +49,8 @@ function App() {
         </>
       )}
     </div>
-  );
+  )
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)

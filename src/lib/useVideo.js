@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import useInterval from 'use-interval'
 import { useSetState } from 'react-use'
+import screenfull from 'screenfull'
 
 let globalData
 
@@ -19,6 +20,7 @@ function addListeners() {
 }
 
 function getFunctions(video) {
+  const _onload = cb => (video ? cb : null)
   const pause = () => video.pause()
   const play = () => video.play()
   const mute = () => (video.muted = true)
@@ -28,12 +30,17 @@ function getFunctions(video) {
     video.currentTime = e.target.value
   }
 
+  const fullscreen = () => {
+    screenfull.request(video)
+  }
+
   return {
     play,
     pause,
     mute,
     unmute,
-    seek
+    seek,
+    fullscreen: _onload(fullscreen)
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "tylermcrobert.usevideo",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "react-use": "^5.5.4",
+    "screenfull": "^4.0.1",
     "use-interval": "^1.1.0"
   }
 }
