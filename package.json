@@ -1,7 +1,7 @@
 {
-  "name": "usevideo",
-  "version": "1.0.0",
-  "description": "",
+  "name": "tylermcrobert.usevideo",
+  "version": "0.0.2",
+  "description": "Hook to get video data and functions ",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
@@ -26,5 +26,15 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylermcrobert/useVideo.git"
+  },
+  "author": "Tyler McRobert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylermcrobert/useVideo/issues"
+  },
+  "homepage": "https://github.com/tylermcrobert/useVideo#readme"
 }
