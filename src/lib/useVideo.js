@@ -67,7 +67,6 @@ export default function useVideo(input) {
     muted: false, // null?
     duration: 0,
     time: 0,
-    videoReady: false,
     percent: 0
   })
   const updateState = newState =>
