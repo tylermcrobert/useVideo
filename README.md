@@ -1,27 +1,31 @@
 # usevideo
 
-> useVideo hook 
+> useVideo hook
 
 [![NPM](https://img.shields.io/npm/v/usevideo.svg)](https://www.npmjs.com/package/usevideo) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save usevideo
+npm install --save tylermcrobert.usevideo
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from "react";
+import useVideo from "tylermcrobert.usevideo";
 
-import { useMyHook } from 'usevideo'
-
-const Example = () => {
-  const example = useMyHook()
+function Video() {
+  const { ref, state, functions } = useVideo();
   return (
-    <div>{example}</div>
-  )
+    <video ref={ref} muted autoPlay loop style={{ width: "100%" }}>
+      <source
+        src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
+        type="video/mp4"
+      />
+    </video>
+  );
 }
 ```
 
