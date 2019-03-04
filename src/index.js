@@ -1,89 +1,56 @@
-import { useRef, useEffect } from "react";
-import useInterval from "use-interval";
-import { useSetState } from "react-use";
+import React from "react";
+import ReactDOM from "react-dom";
+import useVideo from "./lib";
+import "./index.css";
 
-let globalData;
-
-const round = (num, place = 100) => Math.round(num * place) / place;
-
-function addListeners() {
-  const { video, updateState } = globalData;
-  const update = () => setFromVideo(globalData);
-  const setReady = () => updateState({ ready: true });
-
-  video.addEventListener("loadeddata", setReady);
-  video.addEventListener("play", update);
-  video.addEventListener("pause", update);
-  video.addEventListener("volumechange", update);
-  video.addEventListener("seeking", update);
-}
-
-function getFunctions(video) {
-  const pause = () => video.pause();
-  const play = () => video.play();
-  const mute = () => (video.muted = true);
-  const unmute = () => (video.muted = false);
-  const seek = e => {
-    e.persist();
-    video.currentTime = e.target.value;
-  };
-
-  return {
-    play,
-    pause,
-    mute,
-    unmute,
-    seek
-  };
-}
-
-function setFromVideo() {
-  const { video, state, updateState } = globalData;
-  const percent =
-    video.duration > 0 ? (video.currentTime / video.duration) * 100 : 0;
-
-  if (state.ready) {
-    updateState({
-      duration: video.duration,
-      time: round(video.currentTime),
-      percent: round(percent),
-      muted: video.muted,
-      isPlaying: !video.paused
-    });
-  }
-}
-
-export default function useVideo(input) {
-  const ref = useRef();
-  const [state, setState] = useSetState({
-    isPlaying: false, // null?
-    muted: false, // null?
-    duration: 0,
-    time: 0,
-    videoReady: false,
-    percent: 0
-  });
-  const updateState = newState =>
-    setState(prevState => ({ ...prevState, ...newState }));
-
-  useEffect(
-    () => {
-      globalData = { video: ref.current, state, updateState };
-      setFromVideo();
-      addListeners();
-
-      return () => {
-        console.log("unmounted");
-      };
-    },
-    [state.ready, state.isPlaying]
+function App() {
+  const { ref, state, functions } = useVideo(
+    <video muted autoPlay loop style={{ width: "100%" }}>
+      <source
+        src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
+        type="video/mp4"
+      />
+    </video>
   );
+  return (
+    <div className="App">
+      <video ref={ref} muted autoPlay loop style={{ width: "100%" }}>
+        <source
+          src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
+          type="video/mp4"
+        />
+      </video>
+      {state.ready && (
+        <>
+          <p>ready: {state.ready.toString()}</p>
+          <p>playing: {state.isPlaying.toString()}</p>
+          <p>duration: {state.duration}s</p>
+          <p>muted: {state.muted.toString()}</p>
+          <p>time: {state.time}s</p>
+          <p>percent: {state.percent}%</p>
+          {state.isPlaying ? (
+            <button onClick={functions.pause}>Pause</button>
+          ) : (
+            <button onClick={functions.play}>play</button>
+          )}
+          {state.muted ? (
+            <button onClick={functions.unmute}>Unmute</button>
+          ) : (
+            <button onClick={functions.mute}>Mute</button>
+          )}
 
-  useInterval(() => setFromVideo(), state.isPlaying ? 500 : null);
-
-  return {
-    ref,
-    state,
-    functions: getFunctions(ref.current)
-  };
+          <input
+            type="range"
+            min="0"
+            max={state.duration}
+            value={state.time}
+            onChange={functions.seek}
+          />
+        </>
+      )}
+    </div>
+  );
 }
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
