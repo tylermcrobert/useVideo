@@ -4,17 +4,13 @@ import useVideo from './lib'
 import './index.css'
 
 function App() {
-  const { ref, state, functions } = useVideo(
-    <video muted autoPlay loop style={{ width: '100%' }}>
-      <source
-        src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
-        type="video/mp4"
-      />
-    </video>
-  )
+  const { ref, state, functions } = useVideo()
+  const togglePlay = () =>
+    state.isPlaying ? functions.pause() : functions.play()
+
   return (
     <div className="App">
-      <video ref={ref} muted autoPlay loop style={{ width: '100%' }}>
+      <video ref={ref} onClick={togglePlay} playsInline muted loop>
         <source
           src="https://app.coverr.co/s3/mp4/4X4-in-Vinyard.mp4"
           type="video/mp4"

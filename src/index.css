@@ -4,3 +4,7 @@
   max-width: 780px;
   margin: 0px auto;
 }
+
+.App video {
+  width: 100%;
+}
