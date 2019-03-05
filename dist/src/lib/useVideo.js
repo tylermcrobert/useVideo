@@ -156,6 +156,6 @@ function useVideo(input) {
     state: state,
     functions: getFunctions(ref.current)
   };
-}
+} //test
 
 //# sourceMappingURL=useVideo.js.map
