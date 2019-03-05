@@ -8,22 +8,13 @@
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build-examples": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "example": "react-scripts build",
-    "deploy": "gh-pages -d build"
-
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^7.0.1",
-    "gh-pages": "^2.0.1",
     "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-scripts": "^2.1.5",
-    "rimraf": "^2.6.3"
+    "react-dom": "^16.8.3"
   },
   "browserslist": [
     ">0.2%",
